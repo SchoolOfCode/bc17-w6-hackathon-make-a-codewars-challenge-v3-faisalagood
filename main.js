@@ -29,73 +29,10 @@
 //  * Example: "!P@ssw0rd12!"
 //  * Explanation: A long, complex password with random characters is the most secure option.
 //  *
-//  * Bonus Task!
-//  * 
-//  * Password Strength Level 0: TERRIBLE!
-//  * Requirements: A bad common password, in any case, even if it includes uppercase and lowercase letters, numbers, and special characters.
-//  * Example: "Password123&!"
-//  * Explanation: There is a dictionary of common bad passwords used by hackers online. Reject them by returning 0.
 //  * 
 //  * Good luck!
 //  *
 
-const hasSpecialCharacter = (str) => {
-  const specialCharactersRegex = /[!@#$%^&*()\-_\+={[\]}|:;'\",<.>/]/gi;
-  return specialCharactersRegex.test(str);
-};
-
-const commonBadPasswords = [
-  "password",
-  "123456",
-  "qwerty",
-  "123456789",
-  "12345",
-  "111111",
-  "iloveyou",
-  "princess",
-  "admin",
-  "welcome",
-  "666666",
-  "abc123",
-  "football",
-  "123123",
-  "monkey",
-  "654321"
-];
-
 export function passwordStrength(password) {
-  let level = 0;
-
-  let hasBadPassword = commonBadPasswords.some((badPassword) => {
-    if (password.includes(badPassword)) return true;
-  })
-
-  console.log(hasBadPassword)
-
-  if (hasBadPassword) {
-    return;
-  }
-
-  if (typeof password === 'string') {
-    level += 1; // For being a string  
-  }
-  
-
-  if (/\d/.test(password)) {
-    level += 1; // For containing a number
-  }
-
-  if (/[a-z]/.test(password) && /[A-Z]/.test(password)) {
-    level += 1; // For containing both upper and lowercase letters
-  }
-
-  if (hasSpecialCharacter(password)) {
-    level += 1; // For containing a special character
-  }
-
-  if (password.length >= 12) {
-    level += 1; // For being at least 12 characters long
-  }
-
-  return level;
+ 
 }
